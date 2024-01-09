@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
-
+import CoachDetail from '../components/Pages/Coaches/CoachDetail.vue';
+import CoachesList from '../components/Pages/Coaches/CoachesList.vue';
+import CoachRegistration from '../components/Pages/Coaches/CoachRegistration.vue';
+import ContactCoach from '../components/Pages/Requests/ContactCoach.vue';
+import RequestsReceived from '../components/Pages/Requests/RequestsReceived.vue';
+import NotFound from '../components/NotFound.vue';
 const routes = [
   
   {
@@ -10,26 +15,26 @@ const routes = [
   {
     path: '/coaches',
     // name: 'home',
-    component: null
+    component: CoachesList
   },
   
   {
     path: '/coaches/:id',
     // name: 'home',
-    component: null,
-    children:[{path:'contact',component:null}]  //coaches/c1/contact
+    component: CoachDetail,
+    children:[{path:'contact',component:ContactCoach}]  //coaches/c1/contact
   },
   {
     path: '/register',
     // name: 'home',
-    component: null
+    component: CoachRegistration
   },
   {
     path: '/requests',
     // name: 'home',
-    component: null
+    component: RequestsReceived
   },
-  { path: '/:notFound(.*)', component: null }
+  { path: '/:notFound(.*)', component: NotFound }
 
 ]
 
